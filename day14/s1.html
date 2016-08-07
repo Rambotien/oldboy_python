@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input id="c1" type="checkbox" />
+    <input id='c2' type="checkbox" checked="checked" />
+    <div>
+        <input type="button" value="全选" onclick="SelectAll();" />
+        <input type="button" value="取消" onclick="ClearAll();" />
+        <input type="button" value="反选" onclick="ReverseAll();" />
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <td><input  type="checkbox"/></td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td><input  type="checkbox"/></td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td><input  type="checkbox"/></td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td><input  type="checkbox"/></td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td><input  type="checkbox"/></td>
+                <td>123</td>
+                <td>123</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="jquery-2.2.3.js"></script>
+    <script>
+        function SelectAll(){
+            // table标签中的所有input
+            //$('table input[type="checkbox"]')
+            // $('table :checkbox') 找到了所有的input,checkbox
+            $('table :checkbox').prop('checked', true);
+        }
+        function ClearAll(){
+            $('table :checkbox').prop('checked', false);
+        }
+
+        function ReverseAll(){
+//            var userList = [11,22,33,44];
+//            for(var i in userList){
+//
+//            }
+//            $.each(userList, function(i,item){
+//                console.log(i,item);
+//            });
+
+            $('table :checkbox').each(function(){
+                // 每一个循环都执行该方法体
+                // $(this) 表示当前循环的元素
+                var isChecked = $(this).prop('checked');
+                if(isChecked){
+                    $(this).prop('checked', false);
+                }else{
+                    $(this).prop('checked', true);
+                }
+            })
+        }
+    </script>
+</body>
+</html>

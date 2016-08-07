@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="container" sb="xx" class="c1" style="font-size: 48px;color: red;">
+        asd
+    </div>
+    <a href="http://www.etiantian.org" onclick="return AddElement();">添加</a>
+    <script>
+        function AddElement(){
+            // 创建标签，添加至container中
+            /*
+            var nid = document.getElementById('container');
+            var tag = "<input type='text' />";
+            //nid.innerHTML = tag;
+            // 'beforeBegin', 'afterBegin', 'beforeEnd',  'afterEnd'
+             container.insertAdjacentHTML("beforeBegin",tag);
+             */
+            var createObj = document.createElement('a');
+            createObj.href = "http://www.etiantian.org";
+            createObj.innerText = "老男孩教育";
+
+            var nid = document.getElementById('container');
+//            nid.innerHTML = createObj;
+            nid.appendChild(createObj);
+            return false;
+        }
+    </script>
+</body>
+</html>

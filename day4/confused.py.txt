@@ -1,0 +1,213 @@
+1 递归问题
+import time
+def digui(n,s,num):
+    num += 2
+    if num == 10:
+        print(s)
+        return s
+    # print(n)
+    # print(s)
+    #time.sleep(1)
+    n = n + s
+    s = s + n
+    digui(n,s,num)
+
+ret = digui(0,1,num=0)
+print(ret)
+--------------------
+
+
+def a(n):
+    	if n == 0:
+    		    return 1
+    	else:
+    		    a(n-1)
+		
+print a(1)
+-----------------------
+1）递归就是在过程或函数里调用自身；
+（2）在使用递归策略时，必须有一个明确的递归结束条件，称为递归出口。
+
+递归算法一般用于解决三类问题：
+（1）数据的定义是按递归定义的。（比如Fibonacci函数）
+（2）问题解法按递归算法实现。（回溯）
+（3）数据的结构形式是按递归定义的。（比如树的遍历，图的搜索） 　　
+
+递归的缺点：递归算法解题的运行效率较低。在递归调用的过程当中系统为每一层的返回点、局部量等开辟了栈来存储。递归次数过多容易造成栈溢出等。
+
+def fab(n):
+  if n==1:
+    return 1
+  if n==0:
+    return 0
+  else:
+    result=int(fab(n-1))+int(fab(n-2))
+    return result
+
+for i in range(10):
+  print (fab(i))
+
+
+----------------------
+2 正则表达式问题
+re.findall('\\','abc\com')
+
+
+
+
+
+
+----------------------
+计算器作业：
+
+
+介绍
+    就其本质而言，正则表达式（或 RE）是一种小型的、高度专业化的编程语言，
+（在Python中）它内嵌在Python中，并通过 re 模块实现。
+	你可以为想要匹配的相应字符串集指定规则；该字符串集可能包含英文语句、
+	e-mail地址、TeX命令或任何你想搞定的东西。然后你可以问诸如“这个字符串
+	匹配该模式吗？”或“在这个字符串中是否有部分匹配该模式呢？”。你也可以使
+	用 RE 以各种方式来修改或分割字符串。
+字符匹配（普通字符，元字符）：
+普通字符：大多数字符和字母都会和自身匹配
+        >>> re.findall('alex','yuanaleSxalexwupeiqi')
+           ['alex']
+		   
+----------------		   
+s='I get A,  I get B ,I get C'
+re.sub("get","got",s)
+'I got A,  I got B ,I got
+
+subn
+-------------------
+s='I got A,  I got B  ,I get C'
+re.split("\s*,\s*", s )
+-------------------
+ re.split("[bc]",'abcdef')########?
+--------------------------------------------------------------
+
+
+		   
+		   
+		   
+		   
+		   
+		   
+元字符：.   ^   $   *   +   ?   { }   [ ]   \   |   ( )
+\:反斜杠后边跟元字符去除特殊功能，反斜杠后边跟普通字符实现特殊功能。
+\d  匹配任何十进制数；它相当于类 [0-9]。
+\D  匹配任何非数字字符；它相当于类 [^0-9]。
+\s  匹配任何空白字符；它相当于类  [ \t\n\r\f\v]。
+\S  匹配任何非空白字符；它相当于类 [^ \t\n\r\f\v]。
+\w  匹配任何字母数字字符；它相当于类 [a-zA-Z0-9_]。
+\W  匹配任何非字母数字字符；它相当于类 [^a-zA-Z0-9_]
+??? re.findall('\d.\d','5.4')
+[]:元字符[]表示字符类，在一个字符类中，只有字符^、-、]和\有特殊含义。
+字符\仍然表示转义，字符-可以定义字符范围，字符^放在前面，表示非.
+函数：   
+
+1 search(pattern, string[, flags])        在字符串中寻找模式
+2 match(pattern, string[, flags])         在字符串的开始处匹配模式
+
+Match对象是一次匹配的结果，包含了很多关于此次匹配的信息，可以使用Match提供的可读属性或方法来获取这些信息。
+
+属性：
+
+string: 匹配时使用的文本。
+re: 匹配时使用的Pattern对象。
+pos: 文本中正则表达式开始搜索的索引。值与Pattern.match()和Pattern.seach()方法的同名参数相同。
+endpos: 文本中正则表达式结束搜索的索引。值与Pattern.match()和Pattern.seach()方法的同名参数相同。
+lastindex: 最后一个被捕获的分组在文本中的索引。如果没有被捕获的分组，将为None。
+lastgroup: 最后一个被捕获的分组的别名。如果这个分组没有别名或者没有被捕获的分组，将为None。
+方法：
+
+group([group1, …]): 
+获得一个或多个分组截获的字符串；指定多个参数时将以元组形式返回。group1可以使用编号也可以使用别名；编号0代表整个匹配的子串；不填写参数时，返回group(0)；没有截获字符串的组返回None；截获了多次的组返回最后一次截获的子串。
+groups([default]): 
+以元组形式返回全部分组截获的字符串。相当于调用group(1,2,…last)。default表示没有截获字符串的组以这个值替代，默认为None。
+groupdict([default]): 
+返回以有别名的组的别名为键、以该组截获的子串为值的字典，没有别名的组不包含在内。default含义同上。
+start([group]): 
+返回指定的组截获的子串在string中的起始索引（子串第一个字符的索引）。group默认值为0。
+end([group]): 
+返回指定的组截获的子串在string中的结束索引（子串最后一个字符的索引+1）。group默认值为0。
+span([group]): 
+返回(start(group), end(group))
+3 split( rule , target [,maxsplit] )      根据模式的匹配项来分割字符串
+4 findall(pattern, string)                列出字符串中模式的所有匹配项
+5 sub ( rule , replace , target [,count] )
+6 finditer(pattern, string)                返回迭代器
+7 compile(pattern[, flags])               根据包含正则表达式的字符串创建模式对象
+>>> import re 
+>>> re.match("c", "abcdef") 
+>>> re.search("c","abcdef") 
+<_sre.SRE_Match object at 0x00A9A988>
+
+>>> re.match("c", "cabcdef") 
+<_sre.SRE_Match object at 0x00A9AB80>
+
+>>> re.search("c","cabcdef") 
+<_sre.SRE_Match object at 0x00AF1720>
+
+>>> patterm = re.compile("c") 
+>>> patterm.match("abcdef") 
+>>> patterm.match("abcdef",1) 
+>>> patterm.match("abcdef",2) 
+<_sre.SRE_Match object; span=(2, 3), match='c'>
+
+
+-------------
+group([index|id]) 获取匹配的组，缺省返回组 0, 也就是全部值
+groups()                返回全部的组
+groupdict()            返回以组名为 key ，匹配的内容为 values 的字典
+接上例：
+>>> m.groupindex()
+{'age': '24', 'tel': '88888888', 'name': 'Tom'}
+start( [group] )     获取匹配的组的开始位置
+end( [group] )              获取匹配的组的结束位置
+span( [group] )     获取匹配的组的（开始，结束）位置
+
+
+
+
+
+
+
+
+
+
+
+麻烦的换行符！！！-----------------------------------------------------------------------------------
+
+
+正则表达式使用反斜杠" \ "来代表特殊形式或用作转义字符，这里跟Python的语法冲突，因此，
+Python用" \\\\ "表示正则表达式中的" \ "，因为正则表达式中如果要匹配" \ "，需要用\来转
+义，变成" \\ "，而Python语法中\也是特殊字符，如果想表示单纯的\,也得转义，即需要对字符串中每一个\进行转义
+所以就变成了" \\\\ "。
+上面的写法是不是觉得很麻烦，为了使正则表达式具有更好的可读性，Python特别设计了原始字符串(raw string)，
+raw string(抑制转义)就是用'r'作为字符串的前缀，
+如 r"\n"：表示两个字符"\"和"n"，而不是换行符了。Python中写正则表达式时推荐使用这种形式。
+>>> re.findall('\\','abc\com')
+Traceback (most recent call last)
+
+>>> re.findall('\\\\','abc\com')
+['\\']
+>>> re.findall(r'\\','abc\com')
+['\\']
+
+注意点：用r''的方式表示的字符串叫做raw字符串，用于抑制转义。正则表达式使用反斜杆（\）来转义特殊字符，使其可以匹配字符本身，而不是指定其他特殊的含义。这可能会和python字面意义上的字符串转义相冲突，这也许有些令人费解。比如，要匹配一个反斜杆本身，你也许要用'\\\\'来做为正则表达式的字符串，因为正则表达式要是\\，而字符串里，每个反斜杆都要写成\\。你也可以在字符串前加上 r 这个前缀来避免部分疑惑，因为 r 开头的python字符串是 raw 字符串，所以里面的所有字符都不会被转义，比如r'\n'这个字符串就是一个反斜杆加上一字母n，而'\n'我们知道这是个换行符。因此，上面的'\\\\'你也可以写成r'\\'，这样，应该就好理解很多了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

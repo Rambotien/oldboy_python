@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .c{
+
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Index</h1>
+    <h1>Index</h1>
+
+    <!--<script src="https://www.gstatic.com/og/_/js/k=og.og2.en_US.iF4jnkQuaf0.O/rt=j/t=zcms/m=def/exm=in,fot/d=1/ed=1/rs=AA2YrTv5-POC4Ks9GtGRdY2ywUWisqz7-Q"></script>-->
+    <script src="commons.js"></script>
+    <script>
+        //按照js规则解释
+        /*
+        function f1(){
+            alert('f1');
+        }
+        f1();
+        f2();
+        */
+        // 数字、字符串、数组（字典）
+//        var age = "18";
+//        console.log(age, typeof age);
+//        age = parseInt(age);
+//        console.log(age, typeof age);
+
+//        var age = "18.9";
+//        console.log(parseInt(age));
+//        console.log(parseFloat(age));
+//        Number('123');
+//        parseInt('123');
+//        function f1(){
+//            var aaa = 2;
+//            switch(aaa){
+//                case 1:
+//                    console.log('11111');
+//                    break;
+//                case 2:
+//                    console.log('22222');
+//                    break;
+//                default:
+//                    console.log('ddd');
+//
+//            }
+//        }
+//
+//        f1();
+
+//        var aaa = 1;
+//        switch(aaa){
+//            case 1:
+//                console.log('11111');
+//                break;
+//            case 2:
+//                console.log('22222');
+//                break;
+//            default:
+//                console.log('ddd');
+//
+//        }
+
+//        function func1(arg){
+//            console.log(arg);
+//            return "alex";
+//        }
+//
+//        var ret = func1(123);
+//        console.log(ret);
+
+//        var f = function(arg){
+//            console.log(arg);
+//        };
+//
+//        f(12355);
+
+//        (function(arg){
+//            console.log(1111,arg);
+//        })("alex");
+
+        function Foo(name,age) {
+            this.Name = name;
+            this.Age = age;
+            this.Func = function(arg){
+                return this.Name + arg;
+            }
+        }
+        var obj = new Foo('alex', 18);
+
+        console.log(obj.Name);
+        console.log(obj.Age);
+        var ret = obj.Func('sb');
+        console.log(ret);
+
+    </script>
+</body>
+</html>

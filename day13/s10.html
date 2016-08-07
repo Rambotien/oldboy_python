@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三江莅临指导欢迎</title>
+</head>
+<body>
+    <input type="button" onclick="StopInterval();" value="停下来"/>
+    <script>
+//        setInterval("操作","间隔")
+//        setInterval("alert('123')", 2000);
+        // setTimeout
+        obj1= setInterval("Func()", 1000);
+//        obj1= setTimeout("Func()", 10000);
+        function StopInterval(){
+            // 清除定时器
+//            clearTimeout(obj1)
+            clearInterval(obj1);
+        }
+        function Func(){
+            var text = document.title;
+            var firstChar = text.charAt(0);
+            var subText = text.substring(1,text.length);
+            var newTitle = subText + firstChar;
+            document.title = newTitle;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="仿京东商城页面" />
+        <link rel="icon" href="static/img/favicon.ico">
+        <title>个人注册</title>
+        <link rel="stylesheet" href="static/css/base.css" />
+    </head>
+    <body>
+        <div class="header">
+            <a class="logo" href="index.html">
+                <img src="static/img/logo.png" />
+            </a>
+            <div class="title">欢迎注册</div>
+        </div>
+        <div class="main_div">
+            <form class="register" action="http://127.0.0.1:8000/django_form/" enctype="multipart/form-data" method="post">
+                <div class="form_item">
+                    <label class="item_lebal" for="username">用 户 名</label><input id="username" class="field" name="username" type="text" />
+                </div>
+                <div class="form_item">
+                    <label class="item_lebal" for="password">密&nbsp;&nbsp;码</label><input class="field" id="password" name="password" type="password" />
+                </div>
+                <div class="form_item">
+                    <label class="item_lebal" for="passwordrepeat">确认密码</label><input class="field" id="passwordrepeat" name="passwordrepeat" type="passwordrepeat" />
+                </div>
+                <div class="form_item">
+                    <label class="item_lebal" for="province">省&nbsp;&nbsp;份</label>
+                    <div>
+                        <select id="province" name="province" style="border: 0 none; width: 190px">
+                            <option value="beijing">北京</option>
+                            <option value="shanghai">上海</option>
+                            <option value="tianjin">天津</option>
+                            <option value="chongqing">重庆</option>
+                            <option value="hebei">南京</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form_item">
+                    <label class="item_lebal">性&nbsp;&nbsp;别</label>
+                    <div>
+                        <input id="man" name="sex" type="radio" /><label for="man">男&nbsp;&nbsp;</label>
+                        <input id="woman" name="sex" type="radio" /><label for="woman">女</label>
+                    </div>
+                </div>
+                <div class="form_item">
+                    <label class="item_lebal">爱&nbsp;&nbsp;好</label>
+                    <div>
+                        <input id="football" name="hobby" type="checkbox" value="football" /><label for="football">足球&nbsp;</label>
+                        <input id="basketball" name="hobby" type="checkbox" value="basketball" /><label for="basketball">篮球&nbsp;</label>
+                        <input id="python" name="hobby" type="checkbox" value="python" /><label for="python">Python</label>
+                    </div>
+                </div>
+                <div class="bt_div">
+                    <input class="btn" type="submit" value="注册" />
+                </div>
+            </form>
+            <div class="link">
+                <span>Copyright&nbsp;©&nbsp;2004&nbsp;-&nbsp;2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有&nbsp;&nbsp;|&nbsp;&nbsp;消费者维权热线：4006067733</span>
+            </div>
+        </div>
+    </body>
+</html>
